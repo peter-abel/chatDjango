@@ -28,7 +28,7 @@
 
 
             <div class="col-xxl">
-                <h5 class="fw-semibold mb-4">Support</h5>
+                <h5 class="fw-semibold mb-4">Ze Bot</h5>
                 <div class="card">
                     <div class="card-body p-0">
                         <div class="d2c_chat_box">
@@ -41,7 +41,7 @@
                                         <span class="position-absolute start-100 translate-middle badge border border-light rounded-circle bg-success p-1"></span>
                                     </div>
                                     <div class="flex-grow-1 ms-3">
-                                        <strong>Selena Wagner</strong>
+                                        <strong>Ze Bot</strong>
                                     </div>
                                     <div>
                                         <div class="dropdown">
@@ -49,8 +49,8 @@
                                                 <i class="fas fa-ellipsis-v"></i>
                                             </button>
                                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                                <li><a class="dropdown-item" href="#">New Chat</a></li>
+                                                <li><a class="dropdown-item" href="#">Regenerate</a></li>
                                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
                                             </ul>
                                         </div>
@@ -58,106 +58,38 @@
                                 </div>
                             </div>
 
+                            {% block content %}
                             <div class="position-relative">
                                 <div class="chat-messages">
-                                    <div class="chat-message-right pb-4">
-                                        <div>
-                                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="rounded-circle mr-1" alt="Chris Wood" width="40" height="40">
+                                    {% for message in messages %}
+                                        <div class="{% if message.sender == 'user' %}chat-message-right{% else %}chat-message-left{% endif %} pb-4">
+                                            <div>
+                                                <img src="{{ message.sender_image }}" class="rounded-circle mr-1" alt="{{ message.sender }}" width="40" height="40">
+                                            </div>
+                                            <div class="flex-shrink-1 p-2 {% if message.sender == 'user' %}me-3{% else %}ms-3{% endif %}">{{ message.message }}</div>
                                         </div>
-                                        <div class="flex-shrink-1 p-2 me-3">It’s Great opportunity to work.</div>
-                                    </div>
-
-                                    <div class="chat-message-left pb-4">
-                                        <div>
-                                            <img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="rounded-circle mr-1" alt="Sharon Lessman" width="40" height="40">
-                                        </div>
-                                        <div class="flex-shrink-1 p-2 ms-3">Yeah,Of Course.</div>
-                                    </div>
-
-                                    <div class="chat-message-right mb-4">
-                                        <div>
-                                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="rounded-circle mr-1" alt="Chris Wood" width="40" height="40">
-                                        </div>
-                                        <div class="flex-shrink-1 p-2 me-3">Cum ea graeci tractatos.</div>
-                                    </div>
-
-                                    <div class="chat-message-left pb-4">
-                                        <div>
-                                            <img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="rounded-circle mr-1" alt="Sharon Lessman" width="40" height="40">
-                                        </div>
-                                        <div class="flex-shrink-1 p-2 ms-3">Sed pulvinar, massa vitae interdum pulvinar</div>
-                                    </div>
-
-                                    <div class="chat-message-left pb-4">
-                                        <div>
-                                            <img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="rounded-circle mr-1" alt="Sharon Lessman" width="40" height="40">
-                                        </div>
-                                        <div class="flex-shrink-1 p-2 ms-3">Cras pulvinar, sapien id vehicula aliquet, diam velit elementum orci.</div>
-                                    </div>
-
-                                    <div class="chat-message-right mb-4">
-                                        <div>
-                                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="rounded-circle mr-1" alt="Chris Wood" width="40" height="40">
-                                        </div>
-                                        <div class="flex-shrink-1 p-2 me-3">Lorem ipsum dolor sit amet, vis erat denique in, dicunt prodesset te vix.</div>
-                                    </div>
-
-                                    <div class="chat-message-left pb-4">
-                                        <div>
-                                            <img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="rounded-circle mr-1" alt="Sharon Lessman" width="40" height="40">
-                                        </div>
-                                        <div class="flex-shrink-1 p-2 ms-3">Sit meis deleniti eu, pri vidit meliore docendi ut, an eum erat animal commodo.</div>
-                                    </div>
-
-                                    <div class="chat-message-right mb-4">
-                                        <div>
-                                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="rounded-circle mr-1" alt="Chris Wood" width="40" height="40">
-                                        </div>
-                                        <div class="flex-shrink-1 p-2 me-3">Cum ea graeci tractatos.</div>
-                                    </div>
-
-                                    <div class="chat-message-right mb-4">
-                                        <div>
-                                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="rounded-circle mr-1" alt="Chris Wood" width="40" height="40">
-                                        </div>
-                                        <div class="flex-shrink-1 p-2 me-3">Morbi finibus, lorem id placerat ullamcorper, nunc enim ultrices massa, id dignissim metus urna eget purus.</div>
-                                    </div>
-
-                                    <div class="chat-message-left pb-4">
-                                        <div>
-                                            <img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="rounded-circle mr-1" alt="Sharon Lessman" width="40" height="40">
-                                        </div>
-                                        <div class="flex-shrink-1 p-2 ms-3">Risus lectus porttitor magna, vitae commodo lectus mauris et velit.</div>
-                                    </div>
-
-                                    <div class="chat-message-right mb-4">
-                                        <div>
-                                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="rounded-circle mr-1" alt="Chris Wood" width="40" height="40">
-                                        </div>
-                                        <div class="flex-shrink-1 p-2 me-3">Lorem ipsum dolor sit amet, vis erat denique in, dicunt prodesset te vix.</div>
-                                    </div>
-
-                                    <div class="chat-message-left pb-4">
-                                        <div>
-                                            <img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="rounded-circle mr-1" alt="Sharon Lessman" width="40" height="40">
-                                        </div>
-                                        <div class="flex-shrink-1 p-2 ms-3">Sit meis deleniti eu, pri vidit meliore docendi ut, an eum erat animal commodo.</div>
-                                    </div>
+                                    {% endfor %}
                                 </div>
                             </div>
-
+                            {% endblock %}
+                            <form action="{%url 'save_message' %}" method="post" >
+                                {% csrf_token %}
                             <div class="p-4 d2c_chat_footer">
                                 <div class="d-flex justify-content-start align-items-center">
+                                    
                                     <div class="w-100 d-flex justify-content-start align-items-center d2c_input_wrapper px-2">
+                                        
                                         <a class="px-1 text-muted" href="#!"><i class="fas fa-paperclip"></i></a>
                                         <a class="px-1 text-muted" href="#!"><i class="fas fa-smile"></i></a>
-                                        <input type="text" class="form-control py-2 px-1 border-0" id="chatBox" placeholder="Message...">
+                                        <input type="text" class="form-control py-2 px-1 border-0" id="chatBox" name="user_message" placeholder="Message...">
                                     </div>
-                                    <button class="btn ms-2 text-primary">
+                                    <button type="submit" class="btn ms-2 text-primary">
                                         <i class="fas fa-paper-plane"></i>
                                     </button>
+                                    
                                 </div>
                             </div>
+                            </form>
                         </div>
                     </div>
                 </div>
