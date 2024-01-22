@@ -64,7 +64,7 @@
                                     {% for message in messages %}
                                         <div class="{% if message.sender == 'user' %}chat-message-right{% else %}chat-message-left{% endif %} pb-4">
                                             <div>
-                                                <img src="{{ message.sender_image }}" class="rounded-circle mr-1" alt="{{ message.sender }}" width="40" height="40">
+                                                <img src="{% static 'assets\images\profile\profile_4.jpg' %}" class="rounded-circle mr-1" alt="{{ message.sender }}" width="40" height="40">
                                             </div>
                                             <div class="flex-shrink-1 p-2 {% if message.sender == 'user' %}me-3{% else %}ms-3{% endif %}">{{ message.message }}</div>
                                         </div>
@@ -105,6 +105,21 @@
 <i class="far fa-hand-point-right"></i>
 </button>
 <!-- End:Offcanvas Toggler -->
+<!-- templates/chat.html -->
+<script>
+    const chatSocket = new WebSocket('ws://' + window.location.host + '/ws/chat/');
+
+    chatSocket.onmessage = function (e) {
+        const data = JSON.parse(e.data);
+        // Update your UI based on the received message and status
+        // Example: Display messages in a chat window
+        console.log(data.status + ': ' + data.message);
+    };
+
+    chatSocket.onclose = function (e) {
+        console.error('Chat socket closed unexpectedly');
+    };
+</script>
 
 <!-- Initial  Javascript -->
 <script src="{% static 'lib/jQuery/jquery-3.5.1.min.js' %}"></script>
