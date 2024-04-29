@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import redirect
 from .models import ChatMessage
-from .tasks import generate_llm_response
+#from .tasks import generate_llm_response
 
 
 from .models import ChatMessage
