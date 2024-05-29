@@ -43,8 +43,8 @@ def save_message(request):
 
     return HttpResponse('Invalid request')
 
-def generate_llm_response(user_message,request):
-    user_message = request.POST.get('user_message', '')
+def generate_llm_response(user_message):
+   
     # Replace this with your actual LLM API call
     response = co.generate(
         model='command-nightly',
